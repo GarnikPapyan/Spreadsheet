@@ -86,7 +86,7 @@
 	public void setColorAt(int row, int column , Color color) {
 
 		if(row<0 || column<0 || row>rows || column>columns) {
-			throw new RuntimeException("voch korekt row kam cloumn eq tvel");
+			throw new RuntimeException("voch korekt row kam column eq tvel");
 		}
 
 		cell[row][column].setColor(color);
@@ -129,8 +129,12 @@
 
 		double sum = 0;
 		for (int i = 0;i<rows;i++) {
-
+			
 			Object value = cell[i][column].getValue();
+
+			if(value instanceof String) {
+				throw new RuntimeException(" chi kara stringy gumarvi tvin ");
+			}
 
 			if(value instanceof Number) {
 				sum += ((Number) value).doubleValue();
@@ -148,6 +152,10 @@
 		for (int i = 0;i<columns;i++) {
 
 			Object value = cell[row][i].getValue();
+
+			if(value instanceof String) {
+				throw new RuntimeException(" chi kara stringy gumarvi tvin ");
+			}
 
 			if(value instanceof Number) {
 				sum += ((Number) value).doubleValue();
@@ -167,6 +175,10 @@
             for (int j = column1; j <= column2; j++) {
 
                 Object value = cell[i][j].getValue();
+
+                if(value instanceof String) {
+				throw new RuntimeException(" chi kara stringy gumarvi tvin ");
+				}
 
                 if(value instanceof Number) {
 
@@ -211,6 +223,10 @@
             for (int j = column1; j <= column2; j++) {
                 Object value = cell[i][j].getValue();
 
+                if(value instanceof String) {
+				throw new RuntimeException(" chi kara stringy gumarvi tvin ");
+				}
+				
                 if(value instanceof Number) {
 
 				sum += ((Number) value).doubleValue();
